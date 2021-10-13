@@ -1,0 +1,42 @@
+{
+  "name": "game-room-poker",
+  "version": "0.0.0",
+  "description": "A poker plugin module for Game Room",
+  "author": "Adam Lacoste <adam.lacoste@hotmail.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/adamlacoste/game-room-poker#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/adamlacoste/game-room-poker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adamlacoste/game-room-poker/issues"
+  },
+  "main": "main.cjs",
+  "exports": {
+    "import": "./main.mjs",
+    "require": "./main.cjs"
+  },
+  "type": "module",
+  "scripts": {
+    "doc": "./scripts/generate_docs.sh",
+    "lint": "./node_modules/.bin/eslint -c config/eslint.json",
+    "postversion": "git push --tags origin main",
+    "preversion": "npm run lint -- lib/* && npm test && npm run doc",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config config/jest.json",
+    "version": "git add doc/ test/coverage"
+  },
+  "dependencies": {
+    "card-sharp": "^0.2.3"
+  },
+  "devDependencies": {
+    "dmd-clear": "^0.1.2",
+    "eslint": "^7.32.0",
+    "jest": "^27.2.5",
+    "jsdoc-to-markdown": "^7.0.1"
+  },
+  "engines": {
+    "node": "^14.18.0",
+    "npm": "^6.14.15"
+  }
+}
